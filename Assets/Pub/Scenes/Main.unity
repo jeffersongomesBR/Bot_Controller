@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &58211039
 Transform:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &126567898
 Transform:
   m_ObjectHideFlags: 0
@@ -532,6 +532,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26bc1ccd6da57e4e8957ee9757dcb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  headLights: {fileID: 126567897}
+  breakLights: {fileID: 58211038}
+  lights: {fileID: 2100000, guid: abe9351be31eced4ca9d05cdd7879fa0, type: 2}
+  chassis: {fileID: 2100000, guid: dd1f23e2c0a058342bf9b539dadc49bf, type: 2}
+  pallets:
+  - {fileID: 2800000, guid: 30b1dd504034b9740bad962ec4c5ab90, type: 3}
+  - {fileID: 2800000, guid: 6669a8090d705f14593e50a03512ee8d, type: 3}
+  - {fileID: 2800000, guid: 03b0cab94769f0648b774960f999f527, type: 3}
+  - {fileID: 2800000, guid: 518fc686bf3d2ca418b50245a6e1f26c, type: 3}
+  - {fileID: 2800000, guid: 62a9854529b0aec4d8fec41d295e1fc9, type: 3}
+  - {fileID: 2800000, guid: 3f42a1f6889f5254fa3ab04dc5dd30f7, type: 3}
+  FLW: {fileID: 7109602104758358765}
+  FRW: {fileID: 7109602104758358755}
+  RLW: {fileID: 7109602104758358761}
+  RRW: {fileID: 7109602104758358767}
+  steering: 0
+  direction: 0
+  lightsOn: 0
+  breaking: 0
+  engineOn: 0
+  chassiColor: 3
+  controlMode: 0
+  cameraMode: 2
 --- !u!1 &648174758
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,7 +1438,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7109602104758358755}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.016936878, y: -0.0063265953, z: -0.0079831695}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1460,7 +1483,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7109602104758358765}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.016936878, y: -0.0063265953, z: 0.007981111}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
