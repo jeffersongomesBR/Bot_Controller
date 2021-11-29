@@ -20,13 +20,13 @@ namespace com.noCompany.Bot_Controller {
         #region Inspector
 
         [Header("Vehicle Components")]
-        public GameObject headLights; //unused
-        public GameObject breakLights; //unused
+        public GameObject headLights;
+        public GameObject breakLights;
         //TODO: public GameObject buzzer;
         //public GameObject engine; //TODO: For Engine sounds**
 
         [Header("Shaders")]
-        public Material lights; //unused //Emission will be turned on with engine
+        public Material lights;
         public Material chassis; //unused
         public Texture[] pallets = new Texture[6]; //unused
 
@@ -46,9 +46,10 @@ namespace com.noCompany.Bot_Controller {
         public float direction = 0; //+forward, -backward
 
         [Header("Settings")]
-        public bool lightsOn = false; //unused
-        public bool breaking = false; //unused
-        public bool engineOn = false; //unused
+        public bool lightsOn = false;
+        public bool breaking = false;
+        [Tooltip("Dont change that value directly! use ToggleEngine instead")]
+        public bool engineOn = false;
         public Colors chassiColor = Colors.Red; //unused
         public DriveModes controlMode = DriveModes.ManualScreen; //unused //TODO: will be moved to Main
         public CameraModes cameraMode = CameraModes.Free; //unused //TODO: will be moved to CameraController
@@ -62,25 +63,67 @@ namespace com.noCompany.Bot_Controller {
 
         #region MonoBehaviour Callbacks
 
-        private void Update() {
+        //...
 
-            //Steering
-            wheelsRotation.y = Mathf.Lerp(wheelsRotation.y, steering * 30, 0.020f);
+        #endregion
 
-            //Movement
-            speed = Mathf.Lerp(speed, direction * -1, 0.020f);
-            wheelsRotation.z += speed;
+        #region Coroutines
 
-            //Wheels Rotation Apply
-            FLW.transform.rotation = Quaternion.Euler(wheelsRotation);
-            FRW.transform.rotation = Quaternion.Euler(wheelsRotation);
-            RLW.transform.rotation = Quaternion.Euler(0, 0, wheelsRotation.z);
-            RRW.transform.rotation = Quaternion.Euler(0, 0, wheelsRotation.z);
+        IEnumerator EngineRunning() {
+
+            lights.EnableKeyword("_EMISSION");
+
+            while(engineOn) {
+
+                //Lights
+                headLights.SetActive(lightsOn);
+                breakLights.SetActive(breaking);
+
+                //Steering
+                wheelsRotation.y = Mathf.Lerp(wheelsRotation.y, steering * 30, 0.020f);
+
+                //Movement
+                speed = Mathf.Lerp(speed, direction * -1, 0.020f);
+                wheelsRotation.z += speed;
+
+                //Wheels Rotation Apply
+                FLW.transform.rotation = Quaternion.Euler(wheelsRotation);
+                FRW.transform.rotation = Quaternion.Euler(wheelsRotation);
+                RLW.transform.rotation = Quaternion.Euler(0, 0, wheelsRotation.z);
+                RRW.transform.rotation = Quaternion.Euler(0, 0, wheelsRotation.z);
+
+                yield return null;
+            }
+
+            lights.DisableKeyword("_EMISSION");
+            headLights.SetActive(false);
+            breakLights.SetActive(false);
         }
 
         #endregion
 
         #region Other Methods
+
+        [ContextMenu("ToggleEngine")]
+        public void ToggleEngine() { //unused
+
+            engineOn = !engineOn;
+
+            if(engineOn) {
+
+                StartCoroutine(EngineRunning());
+            }
+        }
+
+        public void ToggleBreak() { //unused
+
+            breaking = !breaking;
+        }
+
+        public void ToggleHeadLights() { //unused
+
+            lightsOn = !lightsOn;
+        }
 
         /// <summary>
         /// Turn wheels to targetDirection
