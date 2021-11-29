@@ -7,7 +7,6 @@ namespace com.noCompany.Bot_Controller {
     #region Enums
 
     public enum Colors { Blue, Green, Purple, Red, Silver, Yellow } //TODO: Unused options: 1, 2, 3, 4, 5, 6
-    public enum DriveModes { ManualScreen, ManualWorld, Auto, PointClick, GPS } //TODO: Unused options: 1, 2, 3, 4, 5
     public enum CameraModes { TopView, Backwards, Free, AR } //TODO: Unused options: 1, 2, 3, 4
 
     #endregion
@@ -51,7 +50,6 @@ namespace com.noCompany.Bot_Controller {
         [Tooltip("Dont change that value directly! use ToggleEngine instead")]
         public bool engineOn = false;
         public Colors chassiColor = Colors.Red; //unused
-        public DriveModes controlMode = DriveModes.ManualScreen; //unused //TODO: will be moved to Main
         public CameraModes cameraMode = CameraModes.Free; //unused //TODO: will be moved to CameraController
 
         #endregion
