@@ -46,7 +46,11 @@ namespace com.noCompany.Bot_Controller {
 
         #region MonoBehaviour Callbacks
 
-        //...
+        private void Start() {
+            
+            //App Start...
+            //TODO: Bluetooth connection, discover and comunication
+        }
 
         #endregion
 
