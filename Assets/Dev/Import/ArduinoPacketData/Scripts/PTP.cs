@@ -61,108 +61,108 @@ public class PTP : MonoBehaviour {
         }
 
         public bool[] GetBool(int len) {
-            // Создадим массив заданной длины
+            // Create an array of given length
             var arr = new bool[len];
 
             for (int i = 0; i < len; i++) arr[i] = GetBool();
 
-            // Вернем массив
+            // Return an array
             return arr;
         }
         public sbyte[] GetChar(int len) {
-            // Создадим массив заданной длины
+            // Create an array of given length
             var arr = new sbyte[len];
 
             for (int i = 0; i < len; i++) arr[i] = GetChar();
 
-            // Вернем массив
+            // Return an array
             return arr;
         }
         public byte[] GetByte(int len) {
-            // Создадим массив заданной длины
+            // Create an array of given length
             var arr = new byte[len];
 
             for (int i = 0; i < len; i++) arr[i] = GetByte();
 
-            // Вернем массив
+            // Return an array
             return arr;
         }
         public int[] GetInt(int len) {
-            // Создадим массив заданной длины
+            // Create an array of given length
             var arr = new int[len];
 
             for (int i = 0; i < len; i++) arr[i] = GetInt();
 
-            // Вернем массив
+            // Return an array
             return arr;
         }
         public int[] GetUInt(int len) {
-            // Создадим массив заданной длины
+            // Create an array of given length
             var arr = new int[len];
 
             //for (int i = 0; i < len; i++) arr[i] = GetUInt();
 
-            // Вернем массив
+            // Return an array
             return arr;
         }
         public int[] GetLong(int len) {
-            // Создадим массив заданной длины
+            // Create an array of given length
             var arr = new int[len];
 
             for (int i = 0; i < len; i++) arr[i] = GetLong();
 
-            // Вернем массив
+            // Return an array
             return arr;
         }
         public uint[] GetULong(int len) {
-            // Создадим массив заданной длины
+            // Create an array of given length
             var arr = new uint[len];
 
             for (int i = 0; i < len; i++) arr[i] = GetULong();
 
-            // Вернем массив
+            // Return an array
             return arr;
         }
         public float[] GetFloat(int len) {
-            // Создадим массив заданной длины
+            // Create an array of given length
             var arr = new float[len];
 
             for (int i = 0; i < len; i++) arr[i] = GetFloat();
 
-            // Вернем массив
+            // Return an array
             return arr;
         }
         public double[] GetDouble(int len) {
-            // Создадим массив заданной длины
+            // Create an array of given length
             var arr = new double[len];
 
             for (int i = 0; i < len; i++) arr[i] = GetDouble();
 
-            // Вернем массив
+            // Return an array
             return arr;
         }
 
 
         public static T[][] SplitArray<T>(T[] src, int dim1, int dim2) {
-            // Создадим массив заданной длины
+            // Create an array of given length
             T[][] arr = new T[dim1][];
 
-            // Переберем первое измерение
+            // Let's go over the first dimension
             for (int i = 0; i < dim1; i++) {
-                // Выберем второе измерение
+                // Let's choose the second dimension
                 arr[i] = src.Skip(i * dim2).Take(dim2).ToArray();
             }
 
-            // Вернем массив
+            // Return an array
             return arr;
         }
         public static object SplitArray<T>(T[] src, int[] dim) {
-            // Если измерений много
+            // If there are many dimensions
             if (dim.Length >= 2) {
-                // Посчитаем объем ячеек первого измерения
+                // Calculate the volume of cells of the first dimension
                 int mul = src.Length / dim[0];
 
-                // Выделим место под данные об измерениях
+                // Allocate space for measurement data
                 int[] dim_t = new int[dim.Length - 1];
 
                 // Скопируем данные об измерениях кроме первого
