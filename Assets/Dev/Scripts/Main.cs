@@ -11,6 +11,12 @@ namespace com.noCompany.Bot_Controller {
     //TODO: Execute all backcode and control the remote car
     public class Main : MonoBehaviour {
 
+        #region Singleton
+
+        public static Main Instance { get; private set; }
+
+        #endregion
+
         #region Class Variables
 
         #region Inspector
@@ -45,6 +51,20 @@ namespace com.noCompany.Bot_Controller {
         #endregion
 
         #region MonoBehaviour Callbacks
+
+        private void Awake() {
+            
+            if(Instance == null) {
+
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else {
+
+                Debug.LogError("Multiple Main instances detected, use only one!");
+                Destroy(this);
+            }
+        }
 
         private void Start() {
             
