@@ -6,7 +6,12 @@ namespace com.noCompany.Bot_Controller {
 
         #region Class Variables
 
-        //...
+        #region Inspector
+
+        [Header("UI Static Components")]
+        public GameObject statusTxt; //TODO: statusTxt Tween
+
+        #endregion
 
         #endregion
 
